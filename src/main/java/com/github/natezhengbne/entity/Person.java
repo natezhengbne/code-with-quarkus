@@ -1,20 +1,19 @@
 package com.github.natezhengbne.entity;
 
-import lombok.Data;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Data
 @Entity
-public class Person {
+public class Person extends PanacheEntityBase {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String name;
-    private LocalDate birth;
+    public Long id;
+    public String name;
+    public LocalDate birth;
 
 }

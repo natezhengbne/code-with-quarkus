@@ -17,8 +17,9 @@ public class ExampleResourceTest {
         given()
           .when().get("/hello")
           .then()
+                .log().all()
              .statusCode(200)
-             .body(is("Stef"));
+             .body(is("123"));
     }
 
 }
