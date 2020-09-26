@@ -7,6 +7,7 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
 import javax.interceptor.*;
+import javax.ws.rs.Produces;
 
 @ApplicationScoped
 @Logged
@@ -30,19 +31,10 @@ public class TestInterceptor {
 //        return  result;
     }
 
-    @PreDestroy
-    void cleanup(InvocationContext ctx) {
-        log.info("----> PreDestroy");
-    }
 
-    @PostConstruct
-    public void post(){
-        log.info("----> PostConstruct");
-
-    }
 
     @AroundConstruct
-    public void aroundConstruct(InvocationContext ctx){
+    void aroundConstruct(InvocationContext ctx){
         log.info("----> AroundConstruct");
     }
 
