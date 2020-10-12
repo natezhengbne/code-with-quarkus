@@ -41,7 +41,7 @@ public class ExampleResourceTest {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 
         given().auth()
-                .form("jdoe", "p4ssw0rd",
+                .form("jd1111oe", "p4ss1111w0rd",
                         new FormAuthConfig("j_security_check", "j_username", "j_password")
                                 .withLoggingEnabled())
                 .when().get("/secure-test").then().statusCode(403);
