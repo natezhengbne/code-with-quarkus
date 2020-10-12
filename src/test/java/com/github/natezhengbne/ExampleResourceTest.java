@@ -34,12 +34,6 @@ public class ExampleResourceTest {
                                 .withLoggingEnabled())
                 .when().get("/secure-test")
                 .then().statusCode(200);
-
-        given().auth()
-                .form("jdoe", "p4ssw0rd",
-                        new FormAuthConfig("j_security_check", "j_username", "j_password")
-                                .withLoggingEnabled())
-                .when().get("/secure-test").then().statusCode(403);
     }
 
     @Test()

@@ -1,5 +1,6 @@
 package com.github.natezhengbne;
 
+import io.quarkus.security.AuthenticationFailedException;
 import io.quarkus.security.credential.PasswordCredential;
 import io.quarkus.security.identity.AuthenticationRequestContext;
 import io.quarkus.security.identity.IdentityProvider;
@@ -27,7 +28,7 @@ public class FormIdentityProvider implements IdentityProvider<UsernamePasswordAu
         System.out.println("  Uni<SecurityIdentity> authenticate  ");
         System.out.println("  Uni<SecurityIdentity> authenticate  "+req.getUsername());
         if(!req.getUsername().equalsIgnoreCase("admin")){
-            return Uni.createFrom().item(null);
+            throw new AuthenticationFailedException();
         }
         QuarkusSecurityIdentity identity = QuarkusSecurityIdentity.builder()
                 .setPrincipal(new QuarkusPrincipal("nateusername"))
